@@ -1,5 +1,6 @@
 import { ExtensionContext } from "vscode";
 import * as commands from "./commands";
+import * as config from "./config";
 
 /**
  * Extension activate hook.
@@ -7,8 +8,11 @@ import * as commands from "./commands";
 export function activate(context: ExtensionContext) {
     console.log("mystnb: Activated");
 
+    // Initialize state
+    config.initialize(context);
+
     // Register commands
-    commands.register(context)
+    commands.register(context);
 }
 
 /**
